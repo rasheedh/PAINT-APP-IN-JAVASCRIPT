@@ -1,0 +1,334 @@
+<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+
+
+<table>
+
+<tr>
+
+<canvas id="canvas" width="985" height="285" style="background-color:white;border: 5px solid  #666666"></canvas><br>
+<center>
+<button style="color:rgb(0,100,50)"onclick= "line1()">LINE</button>
+<button style="color:rgb(0,100,50)"onclick= "rect()">RECTANGLE</button>
+<button style="color:rgb(0,100,50)"onclick= "cir()">CIRCLE</button>
+<button style="color:rgb(0,100,50)"onclick= "clr()">CLEAR</button>
+<button style="color:rgb(0,100,50)"onclick= "erase()">ERASER</button>
+<button style="color:rgb(0,100,50)"onclick= "pencil()">PENCIL</button>
+<button style="color:rgb(0,100,50)"onclick= "fil()">Fill or Stroke</button>
+<button style="color:rgb(0,100,50)"onclick= "json1()">Json</button>
+
+<font style="bold" color =majenta>Thick</font>
+<select id="select1" style="color:rgb(0,100,50)" onchange = "wid()"><option value="2">2px</option><option value="4">4px</option><option value="6">6px</option><option value="8">8px</option><option value="10">10px</option><option value="12">12px</option><option value="14">14px</option>
+</select>
+<table>
+<tr>
+<td><button onclick = "color('rgb(50,0,0)')" style="width:20px;height:20px;background-color:rgb(50,0,0)"></button></td>
+<td><button onclick = "color('rgb(100,0,0)')" style="width:20px;height:20px;background-color:rgb(100,0,0)"></button></td>
+<td><button onclick = "color('rgb(150,0,0)')" style="width:20px;height:20px;background-color:rgb(150,0,0)"></button></td>
+<td><button onclick = "color('rgb(200,0,0)')" style="width:20px;height:20px;background-color:rgb(200,0,0)"></button></td>
+<td><button onclick = "color('rgb(250,0,0)')" style="width:20px;height:20px;background-color:rgb(250,0,0)"></button></td>
+<td><button onclick = "color('rgb(0,50,0)')" style="width:20px;height:20px;background-color:rgb(0,50,0)"></button></td>
+<td><button onclick = "color('rgb(0,100,0)')" style="width:20px;height:20px;background-color:rgb(0,100,0)"></button></td>
+<td><button onclick = "color('rgb(0,150,0)')" style="width:20px;height:20px;background-color:rgb(0,150,0)"></button></td>
+<td><button onclick = "color('rgb(0,200,0)')" style="width:20px;height:20px;background-color:rgb(0,200,0)"></button></td>
+<td><button onclick = "color('rgb(0,250,0)')" style="width:20px;height:20px;background-color:rgb(0,250,0)"></button></td>
+<td><button onclick = "color('rgb(0,0,50)')" style="width:20px;height:20px;background-color:rgb(0,0,50)"></button></td>
+<td><button onclick = "color('rgb(0,0,100)')" style="width:20px;height:20px;background-color:rgb(0,0,100)"></button></td>
+<td><button onclick = "color('rgb(0,0,150)')" style="width:20px;height:20px;background-color:rgb(0,0,150)"></button></td>
+<td><button onclick = "color('rgb(0,0,200)')" style="width:20px;height:20px;background-color:rgb(0,0,200)"></button></td>
+<td><button onclick = "color('rgb(0,0,250)')" style="width:20px;height:20px;background-color:rgb(0,0,250)"></button></td>
+</tr>
+<tr>
+<td><button onclick = "color('rgb(50,0,0)')" style="width:20px;height:20px;background-color:rgb(50,0,0)"></button></td>
+<td><button onclick = "color('rgb(100,50,0)')" style="width:20px;height:20px;background-color:rgb(100,50,0)"></button></td>
+<td><button onclick = "color('rgb(150,100,0)')" style="width:20px;height:20px;background-color:rgb(150,100,0)"></button></td>
+<td><button onclick = "color('rgb(200,150,0)')" style="width:20px;height:20px;background-color:rgb(200,150,0)"></button></td>
+<td><button onclick = "color('rgb(250,200,0)')" style="width:20px;height:20px;background-color:rgb(250,200,0)"></button></td>
+<td><button onclick = "color('rgb(0,50,0)')" style="width:20px;height:20px;background-color:rgb(0,50,0)"></button></td>
+<td><button onclick = "color('rgb(0,100,50)')" style="width:20px;height:20px;background-color:rgb(0,100,50)"></button></td>
+<td><button onclick = "color('rgb(0,150,100)')" style="width:20px;height:20px;background-color:rgb(0,150,100)"></button></td>
+<td><button onclick = "color('rgb(0,200,150)')" style="width:20px;height:20px;background-color:rgb(0,200,150)"></button></td>
+<td><button onclick = "color('rgb(0,250,200)')" style="width:20px;height:20px;background-color:rgb(0,250,200)"></button></td>
+<td><button onclick = "color('rgb(50,0,0)')" style="width:20px;height:20px;background-color:rgb(50,0,0)"></button></td>
+<td><button onclick = "color('rgb(100,0,50)')" style="width:20px;height:20px;background-color:rgb(100,0,50)"></button></td>
+<td><button onclick = "color('rgb(150,0,100)')" style="width:20px;height:20px;background-color:rgb(150,0,100)"></button></td>
+<td><button onclick = "color('rgb(200,0,150)')" style="width:20px;height:20px;background-color:rgb(200,0,150)"></button></td>
+<td><button onclick = "color('rgb(250,0,200)')" style="width:20px;height:20px;background-color:rgb(250,0,200)"></button></td>
+</tr>
+<tr>
+
+<td><button onclick = "color('rgb(0,100,200)')" style="width:20px;height:20px;background-color:rgb(0,100,200)"></button></td>
+<td><button onclick = "color('rgb(0,125,255)')" style="width:20px;height:20px;background-color:rgb(0,125,255)"></button></td>
+<td><button onclick = "color('rgb(50,150,255)')" style="width:20px;height:20px;background-color:rgb(50,150,255)"></button></td>
+<td><button onclick = "color('rgb(100,175,255)')" style="width:20px;height:20px;background-color:rgb(100,175,255)"></button></td>
+<td><button onclick = "color('rgb(150,200,250)')" style="width:20px;height:20px;background-color:rgb(150,200,250)"></button></td>
+
+<td><button onclick = "color('rgb(250,0,125)')" style="width:20px;height:20px;background-color:rgb(250,0,50)"></button></td>
+<td><button onclick = "color('rgb(250,0,150)')" style="width:20px;height:20px;background-color:rgb(250,0,100)"></button></td>
+<td><button onclick = "color('rgb(250,0,175)')" style="width:20px;height:20px;background-color:rgb(250,0,150)"></button></td>
+<td><button onclick = "color('rgb(250,0,200)')" style="width:20px;height:20px;background-color:rgb(250,0,200)"></button></td>
+<td><button onclick = "color('rgb(250,0,250)')" style="width:20px;height:20px;background-color:rgb(250,0,250)"></button></td>
+
+<td><button onclick = "color('rgb(0,0,0)')" style="width:20px;height:20px;background-color:rgb(0,0,0)"></button></td>
+<td><button onclick = "color('rgb(50,50,50)')" style="width:20px;height:20px;background-color:rgb(50,50,50)"></button></td>
+<td><button onclick = "color('rgb(100,100,100)')" style="width:20px;height:20px;background-color:rgb(100,100,100)"></button></td>
+<td><button onclick = "color('rgb(175,175,175)')" style="width:20px;height:20px;background-color:rgb(175,175,175)"></button></td>
+<td><button onclick = "color('rgb(255,255,255)')" style="width:20px;height:20px;background-color:rgb(255,255,255)"></button></td>
+</tr>
+</table>
+
+
+<input id="fnam"></input>
+<button onclick="sendstring()">save</button>
+</center>
+<a href='/'>New</a>
+</tr>
+<tr>
+<br><br><b>Scriblings</b>
+<p id="element">Scriblings</p>
+</tr>
+</table>
+
+<script type="text/javascript">
+name=""
+
+for(i in lis){
+	name+='<a href='+lis[i]+' id="link">'+lis[i]+'</a><br>'
+	document.getElementById("element").innerHTML=name}
+canvas = document.getElementById("canvas")
+context = canvas.getContext("2d")
+document.onselectstart=function(){return false}
+if(imagedata==""){
+	j=[]
+}else{
+	j=imagedata
+	scrib()
+}
+v=0
+fi=0
+count = 0
+gcolor = "black"
+function fil(){
+	fi = (fi+1)%2
+	}
+function pencil(){
+        context.fillStyle="black"
+        context.strokeStyle="black"
+	document.documentElement.style.cursor ='url(http://cur.cursors-4u.net/others/oth-5/oth510.png),auto'
+	context.fillStyle="black"
+	canvas.onmousedown = function(e){f=0
+				x7=e.clientX-canvas.getBoundingClientRect().left
+				y7=e.clientY-canvas.getBoundingClientRect().top
+				
+				}
+	canvas.onmouseup = function(){f=1}
+	canvas.onmousemove= pencil1
+	}
+function pencil1(e){
+	if(f==0){
+		context.beginPath()
+		context.moveTo(x7,y7)
+		context.lineTo(e.clientX-canvas.getBoundingClientRect().left,e.clientY-canvas.getBoundingClientRect().top)
+		context.stroke()
+		context.closePath()
+		x7=e.clientX-canvas.getBoundingClientRect().left
+		y7=e.clientY-canvas.getBoundingClientRect().top
+	}	}
+function erase(l){
+	document.documentElement.style.cursor = 'url(http://cur.cursors-4u.net/cursors/cur-9/cur865.png),auto'
+	canvas.onmousedown = function(){flag=0}
+	canvas.onmouseup = function(){flag=1}
+	canvas.onmousemove= erase1
+	}
+function erase1(e){
+	if(flag==0){
+	context.clearRect(e.clientX-canvas.getBoundingClientRect().left,e.clientY-canvas.getBoundingClientRect().top,30,30)	
+	}}
+function wid(){
+	context.lineWidth=document.getElementById("select1").value
+	}
+
+function line1(){
+        context.strokeStyle="black"
+        context.fillStyle="black"
+	document.documentElement.style.cursor ='url(http://cur.cursors-4u.net/cursors/cur-2/cur116.cur),auto'
+	canvas.onmousedown = click1
+	canvas.onmouseup = up	
+	canvas.onmousemove = line3	
+	}
+function color(col){
+	context.fillStyle = col 
+	context.strokeStyle= col
+	gcolor = col
+	}
+function click1(e){
+	fline=0
+	img1 = context.getImageData(0,0,canvas.width,canvas.height)
+	x5=e.clientX-canvas.getBoundingClientRect().left
+	y5=e.clientY-canvas.getBoundingClientRect().top
+		}
+
+function up(){
+	fline=1
+	objlin = {"Type":"Line","x1":x5,"y1":y5,"x2":x11,"y2":y11,"Fill":fi,"Color":gcolor}
+        j.push(objlin)		
+        }
+function line3(e){
+	if(fline==0){
+	context.putImageData(img1,0,0)
+	context.beginPath()
+	context.moveTo(x5,y5)
+	x11=e.clientX-canvas.getBoundingClientRect().left
+	y11=e.clientY-canvas.getBoundingClientRect().top
+	context.lineTo(x11,y11)
+	context.stroke()
+	context.closePath()		
+	}
+	}
+
+function rect(){
+	
+	document.documentElement.style.cursor ='url(http://cur.cursors-4u.net/cursors/cur-2/cur116.cur),auto' 
+        context.fillStyle="black"
+        context.strokeStyle="black"
+	canvas.onmousedown = rec1
+	canvas.onmouseup = rec2	
+	canvas.onmousemove = rec3
+	}
+	
+function rec1(e){
+	frec=0
+	img = context.getImageData(0,0,canvas.width,canvas.height)
+	x=e.clientX-canvas.getBoundingClientRect().left
+	y=e.clientY-canvas.getBoundingClientRect().top
+	}
+function rec2(){
+	frec=1
+	//j.push("{Type:rectangle,c1:("+x+","+y+"),c2:("+x1+","+y1+"),fill:"+fi+",color:"+gcolor+"}")
+	objrec= {"Type":"Rectangle","x1":x,"y1":y,"x2":x1,"y2":y1,"Width":width,"Height":height,"Fill":fi,"Color":gcolor}
+        j.push(objrec)
+        }
+
+function rec3(e){
+	if (frec==0){
+	context.putImageData(img,0,0)	
+	x1=e.clientX-canvas.getBoundingClientRect().left
+	y1=e.clientY-canvas.getBoundingClientRect().top
+        width = x1-x
+        height = y1-y	
+        context.strokeRect(x,y,width,height)
+        if(fi==1){context.fillRect(x,y,x1-x,y1-y)}
+	}	
+	}
+function cir(){
+	context.fillStyle="black"
+        context.strokeStyle="black"
+	document.documentElement.style.cursor ='url(http://cur.cursors-4u.net/cursors/cur-2/cur116.cur),auto'
+	canvas.onmousedown = cir1
+	canvas.onmouseup = cir2
+	canvas.onmousemove = cir3	
+	}
+
+function cir1(e){
+	fcir=0
+	img =context.getImageData(0,0,canvas.width,canvas.height)
+	x2=e.clientX-canvas.getBoundingClientRect().left
+	y2=e.clientY-canvas.getBoundingClientRect().top
+	}
+
+function cir2(){
+	fcir=1
+	//j.push("{Type:circle,c1:("+x2+","+y2+"),c2:("+x3+","+y3+"),fill:"+fi+",color:"+gcolor+"}")
+        objcir= {"Type":"Circle","x1":x2,"y1":y2,"x2":x3,"y2":y3,"Fill":fi,"Color":gcolor}
+        //json2 = JSON.stringify(obj1)        
+        j.push(objcir)	
+        }
+
+function cir3(e){
+	if (fcir==0){
+	context.putImageData(img,0,0)
+	x3=e.clientX-canvas.getBoundingClientRect().left
+	y3=e.clientY-canvas.getBoundingClientRect().top
+	context.beginPath()
+	var a = Math.pow (x3-x2,2)
+	var b = Math.pow (y3-y2,2)
+	radius = Math.sqrt(a+b)
+	context.arc(x2,y2,radius,0,2*Math.PI, true)
+	context.stroke()
+	context.closePath()
+        if(fi==1){context.fill()}
+		}
+	}
+
+function clr(){
+	document.documentElement.style.cursor ='url(http://cur.cursors-4u.net/cursors/cur-2/cur116.cur),auto'
+	context.clearRect(0,0,985,285) 	
+	}
+function json1(){
+        json2 = JSON.stringify(j)
+        alert(json2)        
+        //var txt = '{"first":['+j+']}'
+        //var object1 = eval("("+txt+")")
+	//alert(object1.first)	
+	}
+
+function sendstring(){
+
+         $.post("/",
+                {
+                image:JSON.stringify(j),
+                fnam:document.getElementById("fnam").value
+                },
+                function(data,status) {document.write(data)}
+                );
+}
+function scrib(){
+		for(i in j){
+			
+			//rect = mycanvas.getBoundingClientRect()
+			if(j[i]['Type']=='Line'){
+				context.beginPath()
+				x1=j[i]['x1']
+				y1=j[i]['y1']
+				x2=j[i]['x2']
+				y2=j[i]['y2']
+				context.moveTo(x1,y1)
+				context.lineTo(x2,y2)
+				context.strokeStyle=j[i]['Color']
+				context.stroke()
+				context.closePath()
+			}
+			if(j[i]['Type']=='Circle'){
+				context.beginPath()
+				x1=j[i]['x1']
+				y1=j[i]['y1']
+				x2=j[i]['x2']
+				y2=j[i]['y2']
+				var a = Math.pow (x2-x1,2)
+				var b = Math.pow (y2-y1,2)
+				radius = Math.sqrt(a+b)
+				context.arc(x1,y1,radius,0,2*Math.PI,true)
+				context.strokeStyle=j[i]['Color']
+				context.fillStyle=j[i]['Color']
+				if(j[i]['Fill']==1){
+					context.fill()
+				}
+				context.stroke()
+				context.closePath()
+			}
+			if(j[i]['Type']=='Rectangle'){
+				x1=j[i]['x1']
+				y1=j[i]['y1']
+				width=j[i]['Width']
+				height=j[i]['Height']
+				context.strokeStyle=j[i]['Color']
+				context.fillStyle=j[i]['Color']
+				context.strokeRect(x1,y1,width,height)
+				if(j[i]['Fill']==1){
+					context.fillRect(x1,y1,width,height)
+				}
+			}
+		}
+}
+ 
+</script>
+
